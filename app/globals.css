@@ -253,3 +253,9 @@ pre.body {
 	font-size: 0.9rem;
 	color: #24483a;
 }
+
+.asof {
+	font-size: 0.78rem;
+	color: var(--muted);
+	margin: 0.35rem 0 0;
+}

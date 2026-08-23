@@ -10,7 +10,7 @@
 
 import { NextResponse } from 'next/server';
 
-import { buildChaseFacts } from '@/lib/chase-facts';
+import { buildChaseFacts, formatDate } from '@/lib/chase-facts';
 import { DraftingError, draftChaseEmails } from '@/lib/draft-emails';
 import { InventedFigureError } from '@/lib/figure-guard';
 import {
@@ -90,6 +90,13 @@ export async function POST(request: Request) {
 		currency: result.currency,
 		jurisdiction: result.jurisdiction,
 		daysOverdue: result.daysOverdue,
+		// The day count is computed in UTC on the server. Rather than trust the
+		// visitor's clock -- which cannot be relied on for a figure meant to hold
+		// up in a dispute -- the figure states the date it was computed for. West
+		// of UTC a visitor's local date can be a day behind, and a user who counts
+		// the days themselves and gets a different answer has reason to doubt the
+		// interest figure too.
+		asOf: formatDate(result.asOfDate),
 		invoiceAmount: money(result.amountMinor),
 		interest: money(result.interestMinor),
 		dailyInterest: money(result.dailyInterestMinor),

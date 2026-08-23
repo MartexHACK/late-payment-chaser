@@ -6,6 +6,7 @@ interface Calculation {
 	currency: 'EUR' | 'GBP';
 	jurisdiction: 'EU' | 'UK';
 	daysOverdue: number;
+	asOf: string;
 	invoiceAmount: string;
 	interest: string;
 	dailyInterest: string;
@@ -212,6 +213,14 @@ export default function Home() {
 							{calc.invoiceAmount} invoice, {calc.daysOverdue} days overdue — and rising by{' '}
 							{calc.dailyInterest} a day.
 						</p>
+						{/*
+							Disclose the clock rather than guess at the reader's. Days are
+							counted in UTC on the server, so west of UTC a visitor's own
+							calendar can be a day behind this figure. Stating the date the
+							calculation is good for makes the number self-describing instead
+							of silently disagreeing with them.
+						*/}
+						<p className="asof">Calculated as at {calc.asOf}, counting days in UTC.</p>
 
 						{/*
 							For a floor jurisdiction this badge is not decoration. Telling a
