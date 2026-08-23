@@ -150,12 +150,12 @@ const LEGAL_BASIS: Record<Jurisdiction, LegalBasis[]> = {
 		{
 			statute: 'Directive 2011/7/EU on combating late payment in commercial transactions',
 			provision: 'Art. 2(6), Art. 3 (statutory interest: ECB reference rate + 8pp)',
-			source: 'https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32011L0007',
+			source: 'https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32011L0007',
 		},
 		{
 			statute: 'Directive 2011/7/EU',
 			provision: 'Art. 6(1) (fixed sum of EUR 40 for recovery costs)',
-			source: 'https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32011L0007',
+			source: 'https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32011L0007',
 		},
 	],
 	UK: [

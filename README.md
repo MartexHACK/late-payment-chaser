@@ -69,7 +69,7 @@ tests, pulling in opposite directions.
   [s.6](https://www.legislation.gov.uk/ukpga/1998/20/section/6) (interest) and
   [s.5A](https://www.legislation.gov.uk/ukpga/1998/20/section/5A) (fixed sum of
   £40 / £70 / £100 by debt size)
-- **EU** — [Directive 2011/7/EU](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32011L0007),
+- **EU** — [Directive 2011/7/EU](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32011L0007),
   Art. 2(6) and Art. 3 (interest), Art. 6(1) (fixed sum of €40)
 
 ## What it does not do

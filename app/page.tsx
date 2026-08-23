@@ -88,6 +88,15 @@ export default function Home() {
 				setProblem({ code: payload.code ?? 'ERROR', message: payload.message ?? 'Something went wrong.' });
 			} else {
 				setResult(payload as ChaseResponse);
+				// On a phone the figure lands below the fold, so the page looks like
+				// nothing happened until you scroll. Take the reader to the answer.
+				// Explicitly 'auto'. Smooth scrolling silently no-ops in some engines,
+				// which leaves the reader exactly where they were, wondering whether
+				// the button did anything. An instant jump to the answer always works,
+				// and on a phone that is the whole point.
+				setTimeout(() => {
+					document.getElementById('result')?.scrollIntoView({ behavior: 'auto', block: 'start' });
+				}, 60);
 			}
 		} catch {
 			setProblem({ code: 'NETWORK', message: 'Could not reach the server. Check your connection.' });
@@ -175,7 +184,23 @@ export default function Home() {
 					{pending ? 'Working it out…' : 'Calculate what I am owed'}
 				</button>
 				<p className="hint">
-					Days overdue is worked out from the due date, so there is nothing to keep in step by hand.
+					Days overdue is worked out from the due date, so there is nothing to keep in step by hand.{' '}
+					{/*
+						A lot of visitors arrive from a link out of curiosity, without an
+						invoice in front of them. Giving them a filled-in example means they
+						still see what the tool does instead of bouncing off an empty form.
+					*/}
+					<button
+						type="button"
+						className="example"
+						onClick={() => {
+							setAmount('3,500.00');
+							setDueDate('2026-06-12');
+							setClientName('Northwind Ltd');
+						}}
+					>
+						Fill in an example
+					</button>
 				</p>
 			</form>
 
@@ -205,7 +230,7 @@ export default function Home() {
 
 			{calc && (
 				<>
-					<section className="card">
+					<section className="card" id="result">
 						<p className="headline">
 							You are owed <span className="sum">{calc.totalOwed}</span>
 						</p>
