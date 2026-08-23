@@ -305,3 +305,91 @@ pre.body {
 	text-decoration: underline;
 	cursor: pointer;
 }
+
+/* The explainer below the calculator: long-form reading, not UI. */
+.prose {
+	margin-top: 3rem;
+	padding-top: 2.5rem;
+	border-top: 1px solid var(--line);
+}
+
+.prose h2 {
+	font-size: 1.2rem;
+	letter-spacing: -0.01em;
+	margin: 2.5rem 0 0.75rem;
+}
+
+.prose h2:first-child {
+	margin-top: 0;
+}
+
+.prose h3 {
+	font-size: 1rem;
+	margin: 1.75rem 0 0.5rem;
+}
+
+.prose p,
+.prose li {
+	color: #2c313b;
+	margin: 0 0 0.9rem;
+}
+
+.prose ul {
+	padding-left: 1.2rem;
+}
+
+.prose a {
+	color: var(--accent);
+}
+
+table.bands {
+	width: 100%;
+	border-collapse: collapse;
+	margin: 0 0 1.1rem;
+	font-size: 0.9rem;
+	background: var(--card);
+	border: 1px solid var(--line);
+	border-radius: 8px;
+	overflow: hidden;
+}
+
+table.bands th,
+table.bands td {
+	text-align: left;
+	padding: 0.55rem 0.75rem;
+	border-bottom: 1px solid var(--line);
+}
+
+table.bands th {
+	background: #f0f2f5;
+	font-size: 0.82rem;
+}
+
+table.bands tr:last-child td {
+	border-bottom: none;
+}
+
+.faq {
+	margin: 0;
+}
+
+.faq dt {
+	font-weight: 600;
+	margin-top: 1.2rem;
+	font-size: 0.95rem;
+}
+
+.faq dd {
+	margin: 0.35rem 0 0;
+	color: #2c313b;
+}
+
+.disclaimer {
+	margin-top: 2.5rem;
+	padding: 0.9rem 1rem;
+	background: var(--card);
+	border: 1px solid var(--line);
+	border-radius: 8px;
+	font-size: 0.85rem;
+	color: var(--muted);
+}

@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 
+import Explainer from './Explainer';
+
 interface Calculation {
 	currency: 'EUR' | 'GBP';
 	jurisdiction: 'EU' | 'UK';
@@ -337,6 +339,8 @@ export default function Home() {
 					))}
 				</>
 			)}
+
+			<Explainer />
 		</main>
 	);
 }
