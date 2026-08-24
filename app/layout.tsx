@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Analytics } from '@vercel/analytics/next';
 
 import './globals.css';
 
@@ -31,7 +32,18 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
 		<html lang="en-GB">
-			<body>{children}</body>
+			<body>
+				{children}
+				{/*
+					Cookieless and stores no personal data, which matters for a tool whose
+					audience is UK and EU: no consent banner is needed, and a banner on a
+					page arguing for careful, honest handling of someone's money would sit
+					badly. The question worth answering is what share of visitors actually
+					run a calculation -- that is what decides whether the paid email
+					drafting is worth switching on.
+				*/}
+				<Analytics />
+			</body>
 		</html>
 	);
 }
